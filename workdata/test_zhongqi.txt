@@ -1,6 +1,0 @@
-Cancer	probability
-NSCL	91.83
-Colon	3.12
-Stomach	2.42
-Lung	1.65
-Liver	0.98

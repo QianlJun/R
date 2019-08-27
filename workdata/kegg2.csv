@@ -1,9 +1,0 @@
-Description,Gene_DE,p_value,gene_ratio,count
-coenzyme metabolic process,38,0.0127,2.59,10
-"cellular amino
-acid metabolic process",79,0.000002,2.39,20
-rRNA processing,44,0.0367,2.22,10
-"monocarboxylic acid
- metabolic process",50,0.04,2.1,15
-"formation of translation
-initiation ternary complex",86,0.000087,2.07,20

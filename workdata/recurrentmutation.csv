@@ -1,7 +1,0 @@
-Cancer,type,count
-BREAST,P<0.01&OR>1,0.58917
-LIVER,P<0.01&OR>1,0.00396
-LUNG,P<0.01&OR>1,0.11919
-BREAST,all,1
-LIVER,all,1
-LUNG,all,1
