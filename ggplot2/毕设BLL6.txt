@@ -1,5 +1,0 @@
-
-p<-read.table("heatmap.csv",sep=",",header=TRUE)
-a<-ggplot(p,aes(x=TF,y=Cancer,fill=logOR))
-b<-a+geom_tile(color="white", size=0.1)+scale_fill_gradient2(low='blue',high='red',mid = "white")
-b+theme(axis.text.y= element_text(size=10, color="black",vjust=0.5),axis.text.x=element_text(size=8,color="black",hjust=1,angle=45),axis.title.y=element_text(size=12,color="black"))+xlab(" ")

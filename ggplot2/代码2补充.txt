@@ -1,9 +1,0 @@
-
-
-> w<-subset(p,chr=="chr1"|chr=="chr2"|chr=="chr3"|chr=="chr4"|chr=="chr5"|chr=="chr6"|chr=="chr7"|chr=="chr8",select=chr:pvalue)
-> b+theme(panel.border=element_rect(fill='transparent', color='black'))
-
-> bitmap(file = "1.jpeg", type = "jpeg", res = 1200)
-> f
-> dev.off()
-> getwd()
