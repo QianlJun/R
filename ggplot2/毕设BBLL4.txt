@@ -1,0 +1,5 @@
+ p<-read.table("recurrentmutation.csv",sep=",",header=TRUE)
+a<-ggplot(p,aes(x=Cancer,y=count,fill=type))
+b<-a+geom_bar(stat="identity",position='fill',colour='black')+geom_text(aes(x=1,y=0.10,label="58.91%"),col="black",size=4)+geom_text(aes(x=2,y=0.10,label="0.4%"),col="black",size=4)+geom_text(aes(x=3,y=0.10,label="11.92%"),col="black",size=4)+coord_polar(theta = "y")
+c<-b+theme(panel.border=element_rect(fill='transparent', color='black'))+theme(panel.grid.major=element_line(colour=NA))+theme(panel.background=element_rect(fill='transparent'))
+d<-c+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black"),axis.title.y=element_text(size=12,color="black"))

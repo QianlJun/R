@@ -1,0 +1,2 @@
+客户端：Rstudio或者Rgui都行
+package: ggplot2,  lattice,  car,  gridExtra

@@ -1,0 +1,16 @@
+> setwd("C:/Users/user/Desktop/workdata")                                                               ##设置工作目录
+> library(ggplot2)
+> p<-read.table("C:/Users/user/Desktop/workdata/Epimarks.csv",sep=",",header=TRUE)                      ##读取表格
+> p
+> a<-ggplot(p,aes(x=reorder(Markers,Order),y=log.OR.,fill=DATA))                                        ##建立坐标，排序
+> a
+> b<-a+geom_bar(stat="identity")+scale_fill_manual(values=c("#BDBB69","#8DB35E","#A3B869"))             ##绘制条形图，并按组设置颜色
+> b
+> c<-b+geom_errorbar(aes(ymin=log.lowlimit.,ymax=log.uplimit.),size=0.8)+coord_flip()                   ##添加误差线，设置误差线粗细，并将坐标系x轴和y轴互换
+> c
+> d<-c+theme(panel.grid.major=element_line(colour=NA))+theme(panel.border=element_blank())              ##去掉背景，去掉网格线
+> d
+> e<-d+theme(axis.text.y=element_text(colour="#72706D"),axis.text.x=element_text(colour="#72706D"))+
++xlab("Marker")+ylab("Enrichment: log 2 odds ratio")+labs(title="Enrichment of Sequences with Regulatory Effects")   ##设置x轴和y轴字体颜色，添加上部和底部标题
+> e
+> ggsave(file="output.png")                                                                             ##保存图片

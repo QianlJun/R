@@ -1,0 +1,17 @@
+setwd("C:/Users/QJ/Desktop/workdata") 
+
+p<-read.table("overlapgene.csv",sep=",",header=TRUE)
+p$Function<-factor(p$Function,levels=c("protein binding","Metal-binding","Membrane","Zinc-finger","Cell junction","Cell projection","Cell membrane","nucleus","Transmembrane","Transcription regulation","Alternative splicing","Polymorphism","integral component of membrane","cytoplasm"))
+
+a<-ggplot(p,aes(x=Function,y=Count,fill=P_Value))
+b<-a+geom_bar(stat="identity")
+b+scale_fill_gradient(high="red",low="blue")+coord_flip()
+c<-b+scale_fill_gradient(high="red",low="blue",breaks=c(0.2,0.4,0.6))+coord_flip()
+##break可以自定义图例的数值
+##scale_colour_gradient()和scale_fill_gradient()：双色梯度。顺序由低到高，参数low 和high 用于控制此梯度两端颜色；
+scale_colour_gradient2()和scale_fill_gradient2()：三色梯度。顺序为低-中-高，参数low和high 用于控制此梯度两端颜色，中点默认值是0，可以用参数midpoint 将其设置为任意值；
+scale_colour_gradientn()和scale_fill_gradientn()：自定义的n 色梯度。此标度需要赋给参数colours 一个颜色向量。不加其他参数的话，这些颜色将依照数据的范围均匀地分布。如果你需要让这些值不均匀地分布，则可以使用参数values。如果参数rescale 的值是TRUE（默认），则values 应在0 和1 之间取值，如果rescale 取值FALSE，则values 应在数据范围内取值
+##coord_flip()旋转坐标轴
+d<-c+theme(panel.background=element_rect(fill='transparent'))
+d+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black"),axis.title.y=element_text(size=12,color="black"))
+d+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black"),axis.title.y=element_text(size=12,color="black"))+theme(legend.title = element_text(size=11,vjust=0.5))

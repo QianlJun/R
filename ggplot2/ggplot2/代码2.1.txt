@@ -1,0 +1,33 @@
+> setwd("C:/Users/QJ/Desktop/workdata") 
+## 设置工作目录                                                           
+> library(ggplot2)   
+##加载ggplot2包                                                                                
+> p<-read.table("xyplot.csv",sep=",",header=TRUE)  
+##读取表格                                                     
+> p<-na.omit(p)  
+##去除含有NA的数据                                                                                     
+> head(p)  
+> w<-p
+> w$chr<-factor(w$chr,levels=c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","cr13","chr14","chr15","chr16","chr17","chr18","chr19","chr20","chr21","chr22","chrX"))
+##设置一定顺序
+> w$Color[w$SNP.activity<1.5]<-"non enhancer SNPs"                                                    
+> w$Color[w$SNP.activity>1.5&w$pvalue<0.05]<-"imbalanced enhancer SNPs"
+> w$Color[w$SNP.activity>1.5&w$pvalue>0.05]<-"enhancer SNPs"
+##安条件区别数据
+> head(w)                                                
+> a<-ggplot(w,aes(x=TAG_SNP,y=SNP.activity,colour=Color))+geom_point(stat="identity")
+##建立坐标轴，绘散点图
+> b<-a+facet_grid(.~chr)
+##以chr区别不同的面
+> c<-b+scale_colour_manual(values=c("blue","red","grey")) 
+##设置点的颜色
+> d<-c+theme(panel.border=element_rect(fill='transparent', color='black'))
+##确定边框的填充色和边框颜色
+> e<-d+theme(strip.background=element_rect(fill="white", colour = "black", size=rel(2), linetype = 1),strip.text=element_text(size=rel(1.0)))
+##设置分面标签的填充色，和字体颜色大小
+> f<-e+scale_y_continuous(limits=c(0,8))
+##限制y轴数据在一定范围
+> f
+##预览图片
+> ggsave(file="chr1-X.png")
+##保存图片

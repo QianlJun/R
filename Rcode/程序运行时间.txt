@@ -1,0 +1,6 @@
+system.time(func(data))
+system.time({
+  cl<-makeCluster(4)
+  parLapply(cl,data,func)
+  stopCluster(cl)
+})

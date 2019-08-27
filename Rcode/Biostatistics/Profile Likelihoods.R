@@ -1,0 +1,10 @@
+muVals<-seq(0,3,length=1000)
+likVals<-sapply(muVals,
+                function(mu){
+                  (sum((difference-mu)^2)/
+                     sum((difference-mn)^2))^(-n/2)})
+plot(muVals,likVals,type="l")
+lines(range(muVals[likVals>1/8]),c(1/8,1/8))
+lines(range(muVals[likVals>1/16]),c(1/16,1/16))
+muVals
+?seq

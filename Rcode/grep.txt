@@ -1,0 +1,6 @@
+
+含有ERCC或SIRV的
+
+grep(pattern="ERCC|SIRV",colnames(data))
+
+有一个参数“ignore.case”，默认是F，表示大小写敏感，可以改为T，表示大小写不敏感。

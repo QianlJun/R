@@ -1,0 +1,8 @@
+
+p<-read.table("Regular.csv",sep=",",header=TRUE)
+a<-ggplot(p,aes(x=Region,y=Fraction.of.Total.Mutations,fill=Type))
+b<-a+geom_bar(stat="identity",position='dodge',colour='black',width=0.85)+scale_fill_manual(values=c("#8FBF6C","#ADC371","#CEC576","#E1E16A","#F1F5B4"))
+c<-b+theme(panel.border=element_rect(fill='transparent', color='black'))+theme(panel.grid.major=element_line(colour=NA))+theme(panel.background=element_rect(fill='transparent'))
+d<-c+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black"),axis.title.y=element_text(size=12,color="black"))+xlab(" ")
+d+geom_text(label=paste(p$percent,sep = ''),size=4,colour = "black", vjust=-0.5,position=position_dodge(0.9))+ylim(0,0.3)
+##geom_text可以用来在柱形图上标注值
