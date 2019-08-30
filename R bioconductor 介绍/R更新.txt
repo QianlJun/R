@@ -1,0 +1,2 @@
+library(installr)
+updateR()
