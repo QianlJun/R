@@ -1,0 +1,14 @@
+ setwd("C:/Users/QJ/Desktop/workdata") 
+p<-read.table("geneannotation.csv",sep=",",header=TRUE)
+ library(ggplot2)
+a<-ggplot(p,aes(x=GENE,y=ANNOTATION,fill=ANNOTATION))
+b<-a+geom_point(shape=22,size=8)
+b+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black",hjust=1,angle=45),axis.title.y=element_text(size=12,color="black"))
+
+ b+theme(axis.text.y= element_text(size=12, color="black",vjust=0.5),axis.text.x=element_text(size=12,color="black",hjust=1,angle=45),axis.title.y=element_text(size=12,color="black"))+theme(legend.background=element_rect(colour="purple",fill="pink",size=1,linetype="dashed"))
+##legend.background=element_rect可以设置图例的边框，背影，颜色
+theme(legend.text = element_text(colour = 'red', angle = 45, size = 10, hjust = 3, vjust = 3, face = 'bold'))
+##可以设置图例的字体大小，倾斜角度等等
+p+theme(legend.key.size=unit(2,'cm'));
+p+theme(legend.key.width=unit(5,'cm'));
+##可以设置图例的大笑
