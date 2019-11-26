@@ -1,0 +1,12 @@
+1.macs2.sh       output example: K1_summits.bed
+2.blacklistfilter_501.sh   output example: K1_summits_blacklist_501.bed
+3.removeoverlap.sh   output example: K1_summits_blacklist_501_rmoverlap.bed
+4.normalized_filter5.R
+using:Rscript normalized_filter5.R W1 W1_summits_blacklist_501_rmoverlap.bed 
+output example: K1_normalized_reproducible.bed
+5.combine_sort.sh 
+using:sh combine_sort.sh
+output example: reproducible_all_sort.bed
+6.removeoverlap2.sh output example: K__highquality_reproducible_fixed-width-peaks.bed
+vim .. : sample=W
+sh removeoverlap2.sh
