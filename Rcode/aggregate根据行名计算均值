@@ -1,0 +1,4 @@
+datax <- aggregate(rawdata$ct, by = list(treatment=rawdata$treatment, sample=rawdata$sample, miRNA=rawdata$miRNA, type=rawdata$type, flag=rawdata$flag), mean)
+
+
+mean也可以换成其他函数，比如sum
