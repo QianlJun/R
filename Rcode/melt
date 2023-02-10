@@ -1,0 +1,2 @@
+library(reshape2)
+melt(dataframe)
