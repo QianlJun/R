@@ -1,0 +1,25 @@
+我有一个R字符串列表,我想得到每个字符串的最后一个元素
+
+require(stringr)
+
+string_thing <- "I_AM_STRING"
+Split <- str_split(string_thing, "_")
+Split[[1]][length(Split[[1]])]
+但我怎么能用字符串列表呢？
+
+require(stringr)
+
+string_thing <- c("I_AM_STRING", "I_AM_ALSO_STRING_THING")
+Split <- str_split(string_thing, "_")
+
+#desired result
+answer <- c("STRING", "THING")
+
+答：
+我们可以遍历listwith sapply并获得最后一个元素的'n'个数tail
+
+sapply(Split, tail, 1)
+#[1] "STRING" "STRING"
+如果只有一个字符串,那么请使用[[转换list为vector并获取最后一个元素tail
+
+tail(Split[[1]], 1)
